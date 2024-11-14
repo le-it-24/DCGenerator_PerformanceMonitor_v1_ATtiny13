@@ -46,13 +46,20 @@ void init_sensePins()
 // This method programs the system sleep timer:
 void setSystemSleepTimer()
 {
+   __disable_interrupt(); 
+   __watchdog_reset(); 
+  /* Start timed sequence */ 
+  WDTCR |= (1<<WDCE) | (1<<WDE); 
+  /* Set new prescaler(time-out) value = 64K cycles (~0.5 s) */ 
+  WDTCR = (1<<WDE) | (1<<WDP2) | (1<<WDP0); __enable_interrupt();
 }
 
 void setup()
 {
-  // Init hardware resources:
+  /***HARDWARE MODULES INITIALIZATION***/
   init_sensePins();
-  Serial.begin(9600);
+  
+  // Serial comm setup:
   
 }
 
