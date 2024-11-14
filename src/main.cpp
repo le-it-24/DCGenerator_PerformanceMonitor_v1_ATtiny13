@@ -31,13 +31,32 @@ uint8_t numSamples_TMA = 0;
 /***SENSOR PIN FUNCTIIONS***/
 
 // Initializer for data sensing pins:
-void setup() 
+void init_sensePins()
 {
-  // put your setup code here, to run once:
+  pinMode(GEN_VOLT_SENSE, INPUT);
+  pinMode(GEN_CURRENT_SENSE, INPUT);
+  pinMode(GEN_TEMP_SENSE, INPUT);
+  pinMode(GEN_SPEED_SENSE, INPUT);
+}
+
+
+
+
+/***SYSTEM SLEEP FUNCTIONS***/
+// This method programs the system sleep timer:
+void setSystemSleepTimer()
+{
+}
+
+void setup()
+{
+  // Init hardware resources:
+  init_sensePins();
+  Serial.begin(9600);
   
 }
 
 void loop() 
 {
-  // put your main code here, to run repeatedly:
+  
 }
