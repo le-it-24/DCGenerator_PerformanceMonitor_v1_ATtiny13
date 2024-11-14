@@ -20,7 +20,7 @@
 
 /***MAIN EXECUTION VARIABLES***/
 // Object for software serial interface and comm processing:
-SoftwareSerial mySerial(2, 3); // RX, TX
+SoftwareSerial mySerial(0, 1); // RX, TX
 
 int updateDelayPeriod = 100; // Milliseconds between each sampling update cycle.
 float voltageMovingAvg[5]; // Moving average samples of voltage.
