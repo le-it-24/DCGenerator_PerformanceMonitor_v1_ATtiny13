@@ -1,3 +1,9 @@
+
+
+
+
+/***MAIN EXECUTION DEPENDENCIES***/
+#include <SoftwareSerial.h>
 #include <Arduino.h>
 
 
@@ -13,6 +19,9 @@
 
 
 /***MAIN EXECUTION VARIABLES***/
+// Object for software serial interface and comm processing:
+SoftwareSerial mySerial(2, 3); // RX, TX
+
 int updateDelayPeriod = 100; // Milliseconds between each sampling update cycle.
 float voltageMovingAvg[5]; // Moving average samples of voltage.
 float currentMovigAvg[5]; // Moving average samples of current output.
@@ -60,7 +69,10 @@ void setup()
   init_sensePins();
   
   // Serial comm setup:
-  
+  mySerial.begin(115200);
+  // Test comm:
+  mySerial.println("DC-generator performance monitor system initialized.");
+
 }
 
 void loop() 
