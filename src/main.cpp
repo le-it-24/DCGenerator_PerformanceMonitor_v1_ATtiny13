@@ -19,8 +19,8 @@
 
 
 /***MAIN EXECUTION VARIABLES***/
-// Object for software serial interface and comm processing:
-SoftwareSerial mySerial(0, 1); // RX, TX
+// Object for Debug interface software serial interface and comm processing:
+SoftwareSerial debugSerial(0, 1); // RX, TX
 
 int updateDelayPeriod = 100; // Milliseconds between each sampling update cycle.
 float voltageMovingAvg[5]; // Moving average samples of voltage.
@@ -55,12 +55,10 @@ void init_sensePins()
 // This method programs the system sleep timer:
 void setSystemSleepTimer()
 {
-   __disable_interrupt(); 
-   __watchdog_reset(); 
-  /* Start timed sequence */ 
-  WDTCR |= (1<<WDCE) | (1<<WDE); 
-  /* Set new prescaler(time-out) value = 64K cycles (~0.5 s) */ 
-  WDTCR = (1<<WDE) | (1<<WDP2) | (1<<WDP0); __enable_interrupt();
+   // Timer2 setup to wake sytem after sleep duration:
+   TCNT2 = 255 - sleepDuration;
+   TCCR2B |= (1 << CS22) | (1 << CS21) | (1 << CS20); // Runs timer at CLK_PER/1024.
+   
 }
 
 void setup()
@@ -68,9 +66,12 @@ void setup()
   /***HARDWARE MODULES INITIALIZATION***/
   init_sensePins();
   
-  // Serial comm setup:
-  mySerial.begin(115200);
+  // Debug Serial & System serial comm setup:
+  debugSerial.begin(115200);
+  Serial.begin(115200);
+
   // Test comm:
+  mySerial.println("DC-generator performance monitor system initialized.");
   mySerial.println("DC-generator performance monitor system initialized.");
 
 }
