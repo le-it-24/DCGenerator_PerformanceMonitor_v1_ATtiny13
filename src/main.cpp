@@ -57,8 +57,8 @@ void setSystemSleepTimer()
 {
    // Timer2 setup to wake sytem after sleep duration:
    TCNT2 = 255 - sleepDuration;
+   TIMSK2 |= (1 << TOIE2);
    TCCR2B |= (1 << CS22) | (1 << CS21) | (1 << CS20); // Runs timer at CLK_PER/1024.
-   
 }
 
 void setup()
