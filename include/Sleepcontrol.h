@@ -24,3 +24,13 @@ void setSystemSleepTimer()
    TIMSK2 |= (1 << TOIE2);
    TCCR2B |= (1 << CS22) | (1 << CS21) | (1 << CS20); // Runs timer at CLK_PER/1024.
 }
+
+
+
+
+/***SYSTEM SLEEP CONTROL METHODS***/
+void setSystemSleep() // Puts system to sleep. Wake up source is timer2.
+{
+   setSystemSleepTimer();
+}
+
