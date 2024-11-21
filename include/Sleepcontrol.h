@@ -31,6 +31,12 @@ void setSystemSleepTimer()
 /***SYSTEM SLEEP CONTROL METHODS***/
 void setSystemSleep() // Puts system to sleep. Wake up source is timer2.
 {
+   
+   sleep_bod_disable();
+   sleep_enable();
+   sleep_bod_disable();
    setSystemSleepTimer();
+   sei();
+   sleep_cpu();
 }
 
