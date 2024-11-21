@@ -15,6 +15,8 @@ int sleepDuration = 8; // Value sets sleep time duration,
 
 
 /***SLEEP TIMER (TIMER2) METHODS***/
+
+// This method programs the system sleep timer:
 void setSystemSleepTimer()
 {
    // Timer2 setup to wake sytem after sleep duration:
