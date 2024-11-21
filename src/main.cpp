@@ -69,6 +69,11 @@ void setup()
 
 void loop() 
 {
+
   // Set system to sleep after resolving flags:
   setSystemSleepTimer();
+  
+  // No pending flags, put sydtem to sleep:
+  setSystemSleep();
+
 }
