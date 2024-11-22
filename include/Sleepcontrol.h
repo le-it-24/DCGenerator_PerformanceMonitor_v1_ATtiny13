@@ -35,6 +35,12 @@ void disableSystemSleepTimer()
 
 
 /***SYSTEM SLEEP CONTROL METHODS***/
+
+void init_sleepSystem()
+{
+   set_sleep_mode(SLEEP_MODE_IDLE);
+}
+
 void setSystemSleep() // Puts system to sleep. Wake up source is timer2.
 {
    
