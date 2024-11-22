@@ -76,6 +76,12 @@ void loop()
   /***SYSTEM FLAG PROCESSING BLOCK***/
   if(SYSTEM_WAKE_FLAG) // Flag set periodically to wake system for stat updates.
   {
+    // Reset flag:
+    SYSTEM_WAKE_FLAG = 0;
+
+    // Run system diagnostics:
+    float boiler_avgTemp = getBoiler_avgTemp();
+    float gen_avgVoltOut = get_GenAvgVoltOut();
     
   }
 
