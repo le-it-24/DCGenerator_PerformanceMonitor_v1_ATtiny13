@@ -6,6 +6,11 @@
 
 
 
+/***SLEEP CONTROL APP DEPENDENCIES***/
+#include "config_SleepControl.h"
+
+
+
 
 /***SLEEP CONTROL APPLICATION VARIABLES***/
 int sleepDuration = 8; // Value sets sleep time duration,
