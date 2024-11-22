@@ -73,6 +73,12 @@ void setup()
 void loop() 
 {
   
+  /***SYSTEM FLAG PROCESSING BLOCK***/
+  if(SYSTEM_WAKE_FLAG) // Flag set periodically to wake system for stat updates.
+  {
+    
+  }
+
   // No pending flags, put sydtem to sleep:
   setSystemSleep();
 
