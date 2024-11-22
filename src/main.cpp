@@ -60,6 +60,9 @@ void setup()
   // Debug Serial & System serial comm setup:
   debugSerial.begin(115200);
   Serial.begin(115200);
+  
+  // Sleep System init:
+  init_sleepSystem();
 
   // Test comm:
   mySerial.println("DC-generator performance monitor system initialized.");
@@ -69,9 +72,6 @@ void setup()
 
 void loop() 
 {
-
-  // Set system to sleep after resolving flags:
-  setSystemSleepTimer();
   
   // No pending flags, put sydtem to sleep:
   setSystemSleep();
