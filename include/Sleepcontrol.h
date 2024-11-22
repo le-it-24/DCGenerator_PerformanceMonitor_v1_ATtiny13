@@ -60,4 +60,5 @@ ISR(TIMER2_OVF_vect)
 {
    sleep_disable();
    disableSystemSleepTimer();
+   SYSTEM_WAKE_FLAG = 1;
 }
