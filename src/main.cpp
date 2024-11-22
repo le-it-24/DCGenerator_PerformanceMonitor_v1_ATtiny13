@@ -66,7 +66,7 @@ void setup()
 
   // Test comm:
   mySerial.println("DC-generator performance monitor system initialized.");
-  mySerial.println("DC-generator performance monitor system initialized.");
+  Serial.println("DC-generator performance monitor system initialized.");
 
 }
 
@@ -82,10 +82,15 @@ void loop()
     // Run system diagnostics:
     float boiler_avgTemp = getBoiler_avgTemp();
     float gen_avgVoltOut = get_GenAvgVoltOut();
+    float avgCurrentOut = get_genAvgCurrentOut();
+    float avgRPM = get_genAvgRPM();
     
+    // Send data to SystemController:
+    string performanceData = String(boiler_avgTemp+";"+gen_avgVoltOut+";"+avgCurrentOut+";"+avgRPM);
+    Serial.println(performanceData);
   }
 
-  // No pending flags, put sydtem to sleep:
+  // No pending flags, put system to sleep:
   setSystemSleep();
 
 }
