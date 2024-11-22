@@ -56,3 +56,8 @@ void setSystemSleep() // Puts system to sleep. Wake up source is timer2.
 
 
 /***SLEEP SYSTEM ISR***/
+ISR(TIMER2_OVF_vect)
+{
+   sleep_disable();
+   disableSystemSleepTimer();
+}
