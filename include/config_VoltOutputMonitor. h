@@ -7,5 +7,10 @@
 
 
 
+#define GEN_VOLT_SENSE
+
+
+
+
 /***VOLTAGE OUTPUT SENSING CONFIGURATIONS***/
 int samplSize_voltageSensor = 10; // Number of samples taken per analysis.
