@@ -24,8 +24,16 @@ float get_GenAvgVoltOut()
     uint16_t av = 0;
     for(int s = 0; s < samplSize_voltageSensor; s++)
     {
-        av += analogRead(
+        av += analogRead(GEN_VOLT_SENSE);
+        delayMicroseconds(10);
     }
+    // process AV sample:
+    av = av/samplSize_voltageSensor;
+    // Convert analog data to voltage:
+    float vFilter = (VREF * av)/RES;
+    float vOut = vFilter * VDIVIDER_FACTOR;
+    
+    // Update moving average:
     
 }
 
