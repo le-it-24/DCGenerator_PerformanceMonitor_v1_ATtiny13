@@ -21,7 +21,11 @@
 float get_GenAvgVoltOut()
 {
     // Build sample set of voltage samples:
-    for(int s = 0; 
+    for(int s = 0; s < samplSize_voltageSensor; s++)
+    {
+        
+    }
+    
 }
 
 
