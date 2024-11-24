@@ -21,5 +21,11 @@ float get_genAvgCurrentOut()
     ovI = ovI/current_overSampleSize;
     
     // Convert analog to current:
-    float AcsValueF = (2.5 - (AvgAcs * (5.0 / 1024.0)) )/0.185;
+    float AcsValueF = (2.5 - (ovI * (ADC_VREF / ADC_RES)) )/CURRENT_SENSOR_SENSITIVITY;
+    
+    // Update current moving avg:
+    float avgI = updateMAVG_currentOut(AcsValueF);
+    
+    // Return new avg:
+    return avgI;
 }
