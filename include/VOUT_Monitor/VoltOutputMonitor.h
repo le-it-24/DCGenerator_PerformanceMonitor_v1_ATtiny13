@@ -34,7 +34,10 @@ float get_GenAvgVoltOut()
     float vOut = vFilter * VDIVIDER_FACTOR;
     
     // Update moving average:
+    float vOUT_avg = updateMAV_vOut(vOut);
     
+    // Return avg:
+    return vOUT_avg;
 }
 
 
