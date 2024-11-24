@@ -25,5 +25,8 @@ float get_genAvgTemp()
     float vTemp = (ADC_VREF * anTemp)/ADC_RES;
     
     // Convert voltage to temperature centigrade:
-    float tempC =
+    float tempC = ((vTemp * 1000) -500)/10;
+    
+    // Update moving average:
+    
 }
