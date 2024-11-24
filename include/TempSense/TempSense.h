@@ -28,5 +28,8 @@ float get_genAvgTemp()
     float tempC = ((vTemp * 1000) -500)/10;
     
     // Update moving average:
+    float avgTempC = calculateMAVG_GenTemp(tempC);
     
+    // Return avg:
+    return avgTempC;
 }
