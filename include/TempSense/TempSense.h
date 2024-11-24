@@ -21,4 +21,9 @@ float get_genAvgTemp()
     }
     anTemp = anTemp/overSamplSize_genTemp;
     
+    // Convert Analog data to voltage:
+    float vTemp = (ADC_VREF * anTemp)/ADC_RES;
+    
+    // Convert voltage to temperature centigrade:
+    float tempC =
 }
