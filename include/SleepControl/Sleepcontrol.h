@@ -7,7 +7,7 @@
 
 
 /***SLEEP CONTROL APP DEPENDENCIES***/
-#include "config_SleepControl.h"
+#include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\SleepControl\config_SleepControl.h"
 
 
 

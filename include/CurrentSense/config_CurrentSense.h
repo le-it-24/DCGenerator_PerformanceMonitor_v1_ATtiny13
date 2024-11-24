@@ -1,0 +1,6 @@
+
+
+
+
+/***CURRENT SENSE SYSTEM I/0 NDEFINITIONS***/
+#define GEN_CURRENT_SENSE           A1

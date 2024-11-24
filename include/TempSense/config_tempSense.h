@@ -1,0 +1,6 @@
+
+
+
+
+/***TEMPERATURE SENSE SYSTEM I/O DEFINITIONS***/
+#define GEN_TEMP_SENSE          A2

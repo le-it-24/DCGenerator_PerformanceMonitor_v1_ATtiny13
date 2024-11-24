@@ -5,16 +5,11 @@
 /***MAIN EXECUTION DEPENDENCIES***/
 #include <Arduino.h>
 #include <SoftwareSerial.h>
-#include "SleepControl.h"
-#include "VoltOutputMonitor.h"
-
-
-
-
-/***GENERATOR PERFORMANCE MONITOR PINOUT***/      
-#define GEN_CURRENT_SENSE
-#define GEN_TEMP_SENSE
-#define GEN_SPEED_SENSE
+#include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\SleepControl\Sleepcontrol.h"
+#include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\VOUT_Monitor\VoltOutputMonitor.h"
+#include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\CurrentSense\CurrentSense.h"
+#include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\TempSense\TempSense.h"
+#include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\Speedometer\Speedometer.h"
 
 
 
@@ -66,7 +61,7 @@ void setup()
   init_sleepSystem();
 
   // Test comm:
-  mySerial.println("DC-generator performance monitor system initialized.");
+  debugSerial.println("DC-generator performance monitor system initialized.");
   Serial.println("DC-generator performance monitor system initialized.");
 
 }
@@ -81,13 +76,13 @@ void loop()
     SYSTEM_WAKE_FLAG = 0;
 
     // Run system diagnostics:
-    float boiler_avgTemp = getBoiler_avgTemp();
+    float gen_avgTemp = get_genAvgTemp();
     float gen_avgVoltOut = get_GenAvgVoltOut();
     float avgCurrentOut = get_genAvgCurrentOut();
     float avgRPM = get_genAvgRPM();
     
     // Send data to SystemController:
-    string performanceData = String(boiler_avgTemp+";"+gen_avgVoltOut+";"+avgCurrentOut+";"+avgRPM);
+    String performanceData = String(boiler_avgTemp+";"+gen_avgVoltOut+";"+avgCurrentOut+";"+avgRPM);
     Serial.println(performanceData);
   }
 

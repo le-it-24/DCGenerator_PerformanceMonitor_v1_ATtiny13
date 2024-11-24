@@ -9,7 +9,7 @@
 
 /***VOLTAGE OUTPUT MONITOR APP DEPEDENCUES***/
 
-#include "config_VoltOutputMonitor.h"
+#include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\VOUT_Monitor\config_VoltOutputMonitor.h"
 
 
 

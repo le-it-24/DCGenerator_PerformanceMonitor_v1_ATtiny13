@@ -7,7 +7,8 @@
 
 
 
-#define GEN_VOLT_SENSE
+/***VOLTAGE OUTPUT MONITOR SYSTEM I/O DEFINITIONS***/
+#define GEN_VOLT_SENSE          A0
 
 
 

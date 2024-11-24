@@ -1,0 +1,6 @@
+
+
+
+
+/***SPEEDOMETER SENSOR SYSTEM I/O DEFINITIONS***/
+#define GEN_SPEED_SENSE         8
