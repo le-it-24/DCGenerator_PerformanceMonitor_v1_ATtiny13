@@ -17,7 +17,8 @@ float get_genAvgTemp()
     uint16_t anTemp = 0; // Analog data accumulator for temp signal.
     for(int s = 0; s < overSamplSize_genTemp; s++)
     {
-        anTemp += analogRead(
+        anTemp += analogRead(GEN_TEMP_SENSE);
     }
+    anTemp = anTemp/overSamplSize_genTemp;
     
 }
