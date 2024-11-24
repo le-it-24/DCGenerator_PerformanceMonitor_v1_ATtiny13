@@ -16,7 +16,10 @@ float get_genAvgCurrentOut()
     uint16_t ovI = 0;
     for(int s = 0; s < current_overSampleSize; s++)
     {
-        ovI = analogRead(
+        ovI = analogRead(GEN_CURRENT_SENSE);
     }
+    ovI = ovI/current_overSampleSize;
+    
+    // Convert analog to current:
     
 }
