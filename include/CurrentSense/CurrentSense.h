@@ -21,5 +21,5 @@ float get_genAvgCurrentOut()
     ovI = ovI/current_overSampleSize;
     
     // Convert analog to current:
-    
+    float AcsValueF = (2.5 - (AvgAcs * (5.0 / 1024.0)) )/0.185;
 }
