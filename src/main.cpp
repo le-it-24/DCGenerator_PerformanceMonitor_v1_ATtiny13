@@ -10,6 +10,7 @@
 #include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\CurrentSense\CurrentSense.h"
 #include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\TempSense\TempSense.h"
 #include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\Speedometer\Speedometer.h"
+#include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\Speedometer\Speedometer.h"
 
 
 
@@ -36,12 +37,12 @@ uint8_t numSamples_TMA = 0;
 /***SENSOR PIN FUNCTIIONS***/
 
 // Initializer for data sensing pins:
-void init_sensePins()
+void init_sensors()
 {
   pinMode(GEN_VOLT_SENSE, INPUT);
   pinMode(GEN_CURRENT_SENSE, INPUT);
   pinMode(GEN_TEMP_SENSE, INPUT);
-  pinMode(GEN_SPEED_SENSE, INPUT);
+  init_genSpeedometer();
 }
 
 
@@ -51,7 +52,7 @@ void init_sensePins()
 void setup()
 {
   /***HARDWARE MODULES INITIALIZATION***/
-  init_sensePins();
+  init_sensors();
   
   // Debug Serial & System serial comm setup:
   debugSerial.begin(115200);
@@ -82,7 +83,7 @@ void loop()
     float avgRPM = get_genAvgRPM();
     
     // Send data to SystemController:
-    String performanceData = String(boiler_avgTemp+";"+gen_avgVoltOut+";"+avgCurrentOut+";"+avgRPM);
+    String performanceData = String(gen_avgTemp+";"+gen_avgVoltOut+";"+avgCurrentOut+";"+avgRPM);
     Serial.println(performanceData);
   }
 
