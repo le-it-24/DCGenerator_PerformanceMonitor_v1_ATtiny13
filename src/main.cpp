@@ -52,8 +52,46 @@ void init_sensors()
 
 
 
-/***MAIN EXECUTION SETUP***/
-void setup()
+/***MAIN EXECUTION METHODS***/
+
+// Method to determine if generator output and physical
+// statistics are good for generator operation:
+int isPowerGood()
+{
+  // Generator operation is good if all characteristics are 
+  // within system operational thresholds.
+  if(!genTempGoodMax())
+  {
+    return ERROR_GEN_TEMP_TOO_HIGH;
+  }
+  else if(!genTempGoodMin())
+  {
+    return ERROR_GEN_TEMP_TOO_LOW;
+  }
+  else if(genOverCurrent())
+  {
+    return ERROR_GEN_ILOW;
+  }
+  else if(genUnderCurrent())
+  {
+    return ERROR_GEN_IHIGH;
+  }
+  else if(genUnderVoltage())
+  {
+    return ERROR_GEN_VLOW;
+  }
+  else if(genOverVoltage())
+  {
+    return ERROR_GEN_VHIGH;
+  }
+
+  // If all parameters are within threshold return
+  // 1.
+  return 1;
+
+}
+
+void init_PerformanceMonitor()
 {
   /***HARDWARE MODULES INITIALIZATION***/
   init_sensors();
@@ -80,6 +118,8 @@ void setup()
 void loop() 
 {
   
+  init_PerformanceMonitor();
+
   /***SYSTEM FLAG PROCESSING BLOCK***/
   if(SYSTEM_WAKE_FLAG) // Flag set periodically to wake system for stat updates.
   {
