@@ -3,21 +3,25 @@
 
 
 /***MAIN EXECUTION DEPENDENCIES***/
+
+// Note: The needed sensor functionality for each module 
+//       has been broken down to provide modules for
+//       each sensor application. As well,
+//       System control functions such as sleep control 
+//       have been given their own module.
+
 #include <Arduino.h>
-#include <SoftwareSerial.h>
 #include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\SleepControl\Sleepcontrol.h"
 #include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\VOUT_Monitor\VoltOutputMonitor.h"
 #include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\CurrentSense\CurrentSense.h"
 #include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\TempSense\TempSense.h"
 #include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\Speedometer\Speedometer.h"
-#include "C:\Users\EpicsLab\OneDrive\Documents\EpicsLab\ResearchProjects\DCGenerator_PerformanceMonitor_v1_ATtiny13\include\Speedometer\Speedometer.h"
+
 
 
 
 
 /***MAIN EXECUTION VARIABLES***/
-// Object for Debug interface software serial interface and comm processing:
-SoftwareSerial debugSerial(0, 1); // RX, TX
 
 int updateDelayPeriod = 100; // Milliseconds between each sampling update cycle.
 float voltageMovingAvg[5]; // Moving average samples of voltage.
@@ -53,7 +57,13 @@ void setup()
 {
   /***HARDWARE MODULES INITIALIZATION***/
   init_sensors();
+
+  /***APPLICATION INITIALIZATION PHASE***/
   
+  //  Note: Performance monitor needs to determine if output is good from the 
+  //        the generator. If PowerGood, PerformanceMonitor can setup into active mode.
+  sys_mode = isPowerGood();
+
   // Debug Serial & System serial comm setup:
   debugSerial.begin(115200);
   Serial.begin(115200);
