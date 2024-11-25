@@ -29,8 +29,16 @@ int genTempGoodMin()
     float tempC = ((vTemp * 1000) -500)/10;
     
     // Determine if tempC above threshold:
+    if(tempC > GEN_MIN_OP_TEMP)
+    {
+        return 1;
+    }
     
+    // If line below reached the generator temp was
+    // below min threshold.
+    return 0;
 }
+
 // Read and calculate moving  avg temperature for generator:
 float get_genAvgTemp()
 {
