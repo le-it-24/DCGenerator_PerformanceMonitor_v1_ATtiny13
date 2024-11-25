@@ -10,6 +10,12 @@
 
 /***GENERATOR TEMPERATURE SENSING METHODS***/
 
+
+int genTempGoodMax()
+{
+    
+}
+
 // Method to immediately check if generator current
 // operating temperature is above minimum threshold.
 int genTempGoodMin()
