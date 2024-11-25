@@ -103,7 +103,6 @@ void init_PerformanceMonitor()
   sys_mode = isPowerGood();
 
   // Debug Serial & System serial comm setup:
-  debugSerial.begin(115200);
   Serial.begin(115200);
   
   // Sleep System init:
