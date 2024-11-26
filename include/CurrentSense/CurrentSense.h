@@ -38,7 +38,30 @@ int genOverCurrent()
 
 // Method to immediately check if generator current
 // output amps is below the minimum threshold.
-genOverCurrent()
+genUnderCurrent()
+{
+    // Build current sense over sample:
+    uint16_t ovI = 0;
+    for(int s = 0; s < current_overSampleSize; s++)
+    {
+        ovI = analogRead(GEN_CURRENT_SENSE);
+    }
+    ovI = ovI/current_overSampleSize;
+    
+    // Convert analog to current:
+    float AcsValueF = (2.5 - (ovI * (ADC_VREF / ADC_RES)) )/CURRENT_SENSOR_SENSITIVITY;
+    
+    // Determine if generator current output is above minimum:
+    if(AcsValueF < GEN_AMP_OUTPUT_MAX)
+    {
+        return 0;
+    }
+    
+    // If the below line is reached then the generator 
+    // is in over-current condition.
+    return 1;
+}
+
 float get_genAvgCurrentOut()
 {
     // Build current sense over sample:
