@@ -16,6 +16,8 @@
 
 /***GENERATOR VOLTAGE OUTPUT MONITOR METHODS***/
 
+// Method to immediately check if generator current
+// output voltage is below the minimum threshold.
 int genUnderVoltage()
 
 // Sense and calculate current average
