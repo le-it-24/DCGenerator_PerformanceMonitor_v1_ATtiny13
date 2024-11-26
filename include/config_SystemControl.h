@@ -11,4 +11,7 @@
 #define GEN_ACTIVE          1
 
 // System mode variables and definitions:
+#define ERROR_GEN_TEMP_TOO_HIGH -1
+#define
+
 int sys_mode; // Defines operational mode of PerformanceMonitor.
