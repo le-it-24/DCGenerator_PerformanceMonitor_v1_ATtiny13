@@ -10,7 +10,12 @@
 
 /***GENERATOR CURRENT OUTPUT SENSING METHODS***/
 
+// Method to immediately check if generator current
+// output amps is above the maximum threshold.
 int genOverCurrent()
+{
+}
+
 float get_genAvgCurrentOut()
 {
     // Build current sense over sample:
