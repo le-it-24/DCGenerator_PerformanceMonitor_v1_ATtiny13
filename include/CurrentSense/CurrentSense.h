@@ -38,7 +38,7 @@ int genOverCurrent()
 
 // Method to immediately check if generator current
 // output amps is below the minimum threshold.
-genUnderCurrent()
+int genUnderCurrent()
 {
     // Build current sense over sample:
     uint16_t ovI = 0;
