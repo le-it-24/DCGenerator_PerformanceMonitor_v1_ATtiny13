@@ -10,6 +10,7 @@
 
 /***GENERATOR CURRENT OUTPUT SENSING METHODS***/
 
+int genOverCurrent()
 float get_genAvgCurrentOut()
 {
     // Build current sense over sample:
