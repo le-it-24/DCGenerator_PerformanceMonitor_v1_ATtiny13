@@ -16,6 +16,7 @@
 #define ERROR_GEN_ILOW -3
 #define ERROR_GEN_IHIGH -4
 #define ERROR_GEN_VLOW -5
+#define ERROR_GEN_VHIGH -6
 
 
 int sys_mode; // Defines operational mode of PerformanceMonitor.
