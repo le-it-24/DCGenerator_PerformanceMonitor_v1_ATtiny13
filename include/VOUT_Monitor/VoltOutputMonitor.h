@@ -62,13 +62,13 @@ int genOverVoltage()
     float vOut = vFilter * VDIVIDER_FACTOR;
     
     // Determine if vOut less than min treshold:
-    if(vOut > GEN_MIN_VOUT)
+    if(vOut < GEN_MAX_VOUT)
     {
         return 0;
     }
     
-    // If this line is reached, the output voltage is below
-    // min threshold.
+    // If this line is reached, the output voltage is above
+    // max threshold.
     return 1;
 }
 
