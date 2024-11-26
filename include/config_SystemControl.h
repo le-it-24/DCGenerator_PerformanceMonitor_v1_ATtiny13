@@ -13,5 +13,7 @@
 // System mode variables and definitions:
 #define ERROR_GEN_TEMP_TOO_HIGH -1
 #define ERROR_GEN_TEMP_TOO_LOW -2
+#define ERROR_GEN_ILOW -3
+
 
 int sys_mode; // Defines operational mode of PerformanceMonitor.
