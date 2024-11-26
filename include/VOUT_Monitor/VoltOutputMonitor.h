@@ -16,6 +16,8 @@
 
 /***GENERATOR VOLTAGE OUTPUT MONITOR METHODS***/
 
+int genUnderVoltage()
+
 // Sense and calculate current average
 // voltage output.
 float get_GenAvgVoltOut()
