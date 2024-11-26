@@ -52,13 +52,13 @@ genUnderCurrent()
     float AcsValueF = (2.5 - (ovI * (ADC_VREF / ADC_RES)) )/CURRENT_SENSOR_SENSITIVITY;
     
     // Determine if generator current output is above minimum:
-    if(AcsValueF < GEN_AMP_OUTPUT_MAX)
+    if(AcsValueF > GEN_AMP_OUTPUT_MIN)
     {
         return 0;
     }
     
     // If the below line is reached then the generator 
-    // is in over-current condition.
+    // is in under-current condition.
     return 1;
 }
 
