@@ -36,6 +36,9 @@ int genOverCurrent()
     return 1;
 }
 
+// Method to immediately check if generator current
+// output amps is above the maximum threshold
+genOverCurrent()
 float get_genAvgCurrentOut()
 {
     // Build current sense over sample:
